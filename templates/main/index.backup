@@ -1,0 +1,74 @@
+{% extends 'main/base.html' %}
+{% load static %} 
+
+{% block body_block %}
+
+ <body>
+  <div class="hero-image">
+   <div class="hero-text">
+     <h1 style="font-size:50px">Mochida</h1>
+     <p>Where my mind can roam free</p>
+   </div>
+ </div>
+ <br>
+
+<div class="container-fluid bg-2 text-center" style="padding-top:30px; padding-bottom:30px;">
+  <h3>Perkenalan</h3>
+  {% for i in perkenalan %}
+  <p>{{ i.title }}</p>
+  <p>{{ i.body | safe }}</p>
+  {% endfor %}
+</div>
+
+<h3 style="text-align:center; padding-bottom:30px;">Postingan Terbaru</h3>
+
+<div class="container">
+    <div class="row">
+            {% autoescape off %}
+            {% for post in terbaru %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.date }} </p>
+                    <p class="card-text">{{ post.body|truncatechars_html:300 }}</p>
+                    <p>---------------------</p>
+                    <a href="{% url 'detail' post.slug  %}" class="btn btn-primary">Selengkapnya &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+            {% endfor %}
+        {% endautoescape %}
+    </div>
+</div>
+
+<div class="col text-center" style="padding:30px;">
+<a href="{% url 'blog' %}"><button class="btn btn-primary">Lihat Blog</button></a>
+</div>
+<div class="container-fluid bg-3 text-center">
+  <h3>Portofolio</h3>
+  <p>Entarlah</p>
+</div>
+
+ </div>
+ <script>
+  $(window).on("load",function() {
+   $(window).scroll(function() {
+     var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+     $(".sub").each(function() {
+       var objectBottom = $(this).offset().top + $(this).outerHeight();
+
+       if (objectBottom < windowBottom) {
+  if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+       } else { 
+  if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+       }
+     });
+   }).scroll();
+ });
+ </script>
+ </body>
+
+</html>
+{% endblock %}

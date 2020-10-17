@@ -1,0 +1,17 @@
+{% block sidebar %}
+<div class="col-md-4 float-right ">
+<div class="card my-4">
+        <h5 class="card-header">Kategori</h5>
+    <div class="card-body">
+	    <p><a href="{% url 'category' 'Pemrograman' %}">Pemrograman</a></p>
+	    <p><a href="{% url 'category' 'Perwibuan' %}">Perwibuan</a></p>
+
+	    <p><a href="{% url 'category' 'Kehidupan' %}">Kehidupan</a></p>
+	    <p><a href="{% url 'category' 'Game' %}">Game</a></p>
+	    <p><a href="{% url 'category' 'Teknologi' %}">Teknologi</a></p>
+    </div>
+</div>
+
+    <iframe src="https://discordapp.com/widget?id=519131461622956053&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+</div>
+{% endblock sidebar %}

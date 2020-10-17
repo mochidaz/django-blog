@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% block body_block %}
+
+<div class="container">
+  <div class="row">
+    <div class="card col md-8 mb-4 mt-3 justify-content-center text-center">
+      <div class="card-body">
+	      <h3>Kategori: {{ category }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+            {% autoescape off %}
+            {% for post in posts %}
+            <div class="card mb-4">
+                <div class="card-body">
+			<div class="article">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.date }} </p>
+                    <p class="card-text">{{ post.body|truncatechars_html:200 }}</p>
+                    <p>---------------------</p>
+                    <a href="{% url 'detail' post.category post.slug  %}" class="btn btn-primary">Selengkapnya &rarr;</a>
+			</div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endautoescape %}
+        </div>
+
+    {% block sidebar %} {% include 'blog/sidebar.html' %} {% endblock sidebar %}
+    </div>
+</div>
+{% endblock %}
+

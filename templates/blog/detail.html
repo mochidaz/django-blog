@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block body_block %}
+<style>
+img {
+	max-width: 100%;
+	max-height:100%;
+	object-fit:cover;
+}
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{{ post.title }}</h1>
+      <p class="text-muted">Kategori: {{ post.category }}</p>
+        <p class=" text-muted">Oleh: {{ post.author }} | {{ post.date }}</p>
+        <p class="card-text">{{ post.body | safe }}</p>
+      </div>
+    </div>
+    {% block sidebar %} {% include 'blog/sidebar.html' %} {% endblock sidebar %}
+  </div>
+</div>
+{% endblock %}

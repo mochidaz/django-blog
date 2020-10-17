@@ -1,0 +1,94 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <!-- End Bootstrap  -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="/static/css/index.css">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+.main {
+	font-family:Inconsolata;
+}
+
+.cover-img {
+  max-width:200px;
+  max-height:200px;
+}
+
+.article img {
+	display:none;
+}
+ 
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand main" href="#">~rahman@blog $</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+	      <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+	      <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}"  method="GET"> 
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+{% block body_block %}
+
+{% endblock %}
+
+<!-- Footer -->
+<footer class="page-footer font-small cyan darken-3 text-center" style="background:white">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12 py-2">
+        <div class="mb-2 flex-center" style="padding-top:30px">
+
+          <a class="tw-ic" href="https://github.com/mochidaz">
+		  <i class="fab fa-github"></i>
+          </a>
+          <a class="ins-ic" href="https://instagram.com/__rahmanhakim">
+            <i class="fab fa-instagram"> </i>
+
+          <a class="ins-ic" href="mailto:rahmanhakim2435@protonmail.com?subject=Feedback&body=Hello">
+            <i class="fas fa-envelope-square"> </i>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</footer>
+
+</body>
